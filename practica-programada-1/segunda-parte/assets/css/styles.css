@@ -1,0 +1,215 @@
+:root {
+    --bg: #2c3e50;
+    --link: #ffffff;
+    --accent: #f39c12;
+    --card: #ffffff;
+    --muted: rgba(0, 0, 0, 0.06);
+    --max-width: 900px;
+    --gap: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #222;
+    background: #f6f7fb;
+}
+
+.site-header {
+    background: var(--bg);
+    color: var(--link);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.nav-list a {
+    color: var(--link);
+    text-decoration: none;
+    padding: .4rem .6rem;
+    border-radius: 4px;
+    transition: color .15s, background .15s
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    background: var(--muted);
+    color: var(--accent);
+    outline: none;
+}
+
+.doctor-profile {
+    background: linear-gradient(180deg, var(--card), #fafafa);
+    max-width: var(--max-width);
+    margin: calc(var(--gap)*2) auto;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.doctor-profile>.doctor-name {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #1f3b4d;
+    font-weight: 700;
+}
+
+.doctor-profile>.doctor-specialty:is(:first-of-type, :not(.extra)) {
+    margin: 0;
+    font-size: 1rem;
+    color: #4b5964;
+    font-weight: 600;
+}
+
+#doctor-description {}
+
+#doctor-description {
+    margin: 0;
+    line-height: 1.5;
+    color: #333;
+    font-size: 0.97rem;
+}
+
+/* Actions: schedule button */
+.actions {
+    margin-top: .5rem;
+}
+
+.btn-schedule {
+    display: inline-block;
+    text-decoration: none;
+    padding: .6rem .9rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+}
+
+.btn-schedule:hover,
+.btn-schedule:focus {
+    transform: translateY(-2px);
+    filter: brightness(.97);
+    outline: none;
+}
+
+/* Patient comments section */
+.patient-comments {
+    max-width: var(--max-width);
+    margin: 0 auto calc(var(--gap) * 2);
+    padding: 0 1rem;
+}
+
+.patient-comments>h2 {
+    margin: 0 0 .75rem;
+    font-size: 1.25rem;
+    color: #243742;
+}
+
+.comments-list {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.comment-card {
+    background: #fff;
+    border: 1px solid rgba(36, 55, 66, 0.06);
+    padding: 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(16, 36, 49, 0.04);
+    flex: 1 1 28%;
+    /* allow three across, shrink/wrap on small screens */
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.comment-card>.patient-name {
+    margin: 0;
+    font-size: 1rem;
+    color: #153240;
+    font-weight: 700;
+}
+
+.comment-card>.patient-text {
+    margin: 0;
+    color: #37474f;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    flex: 1 0 auto;
+}
+
+.comment-card>.comment-date {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #7a8a91;
+    align-self: flex-end;
+}
+
+/* Responsive */
+@media (max-width:700px) {
+    .nav-list {
+        gap: .6rem;
+        font-size: .95rem
+    }
+
+    .doctor-profile {
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 8px
+    }
+}
+
+@media (max-width:380px) {
+    .doctor-profile {
+        padding: .75rem
+    }
+
+    .doctor-profile>.doctor-name {
+        font-size: 1.15rem
+    }
+
+    .btn-schedule {
+        width: 100%;
+        text-align: center
+    }
+}
+
+@media (max-width: 880px) {
+    .comment-card {
+        flex: 1 1 45%;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 520px) {
+    .comments-list {
+        gap: 0.8rem;
+    }
+
+    .comment-card {
+        flex: 1 1 100%;
+        min-width: auto;
+    }
+}
