@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        
+        <label for="salarioBruto">Salario bruto mensual (₡): </label>
+        <input type="number" id="salarioBruto" step="0.01" placeholder="Ingrese salario bruto">
+        <button id="calcularBtn">Calcular</button>
+        
+        <h2>Resultados:</h2>
+        <p>Rebajo del seguro: <span id="montoSeguro"></span></p>
+        <p>Impuesto sobre el salario: <span id="impuestoSalario"></span></p>
+        <p>Salario neto: <span id="salarioNeto"></span></p>
+
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../assets/js/calculoSalario.js"></script>
+</body>
+
+</html>
