@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso Estudio 1</title>
+
+    <!-- CDN Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Registro de Notas</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Formulario de Registro</h4>
+                    </div>
+                    <div class="card-body">
+                        <form name="formRegistro" id="formRegistro">
+                            <div class="mb-3">
+                                <label for="txtNombre" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="txtNombre" name="txtNombre">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtApellido" class="form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="txtApellido" name="txtApellido">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txtNota" class="form-label">Nota:</label>
+                                <input type="number" class="form-control" id="txtNota" name="txtNota" min="0" max="100">
+                            </div>
+
+                            <button disabled type="submit" id="btnRegistrar" name="btnRegistrar" class="btn btn-primary w-100">Registrar Nota</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Lista de Estudiantes</h4>
+                    </div>
+                    <div class="card-body">
+                        <table name="tbEstudiantes" id="tbEstudiantes" class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Nota</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbEstudiantesBody" name="tbEstudiantesBody">
+                                <!-- Filas de estudiantes se agregarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
