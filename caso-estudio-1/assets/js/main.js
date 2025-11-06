@@ -4,6 +4,9 @@ const txtNombre = document.getElementById("txtNombre");
 const txtApellido = document.getElementById("txtApellido");
 const formRegistro = document.getElementById("formRegistro");
 const tbEstudiantesBody = document.getElementById("tbEstudiantesBody");
+const txtNotaAlta = document.getElementById("txtNotaAlta");
+const txtNotaBaja = document.getElementById("txtNotaBaja");
+const txtPromedio = document.getElementById("txtPromedio");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -95,14 +98,41 @@ const registrarNota = async (event) => {
 const cargarEstudiantes = () => {
 
     tbEstudiantesBody.innerHTML = "";
+    let notaAlta = 0;
+    let notaBaja = 0;
+    let sumaNotas = 0;
+    let cantidadNotas = 0;
 
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key.startsWith("estudiante_")) {
             const estudiante = JSON.parse(localStorage.getItem(key));
             agregarEstudianteATabla(estudiante);
+
+            if (i === 0) {
+                notaAlta = estudiante.nota;
+                notaBaja = estudiante.nota;
+            }
+
+            if (estudiante.nota > notaAlta) {
+                notaAlta = estudiante.nota;
+            }
+
+            if (estudiante.nota < notaBaja) { 
+                notaBaja = estudiante.nota;
+            }
+
+            sumaNotas += estudiante.nota;
+            cantidadNotas += 1;
+
         }
     }
+
+    const promedio = cantidadNotas > 0 ? (sumaNotas / cantidadNotas).toFixed(2) : 0;
+
+    txtNotaAlta.textContent = notaAlta;
+    txtNotaBaja.textContent = notaBaja;
+    txtPromedio.textContent = promedio;
 }
 
 const agregarEstudianteATabla = (estudiante) => {
